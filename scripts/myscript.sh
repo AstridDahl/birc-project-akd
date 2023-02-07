@@ -1,12 +1,3 @@
-
-# #!/bin/bash
-# #SBATCH --mem=1gb
-# #SBATCH --time=01:00:00
-# #SBATCH --account=birc-project-akd
-# #SBATCH --job-name=firstjob
-
-# echo "I can submit cluster jobs now!" > success.txt
-
 #!/bin/bash
 #SBATCH --mem=1gb
 #SBATCH --time=01:00:00
