@@ -26,7 +26,7 @@ def reference_starsolo(path_to_ref,genome_fa,gene_annotation): # creates human r
 def mapping_starsolo_velocity(path_to_ref, read_2, read_1, CB_whitelist, out_prefix):
 	inputs = [path_to_ref+'Log.out']
 	outputs = [f'{out_prefix}Log.final.out']
-	options = {"memory": "70g","walltime":"23:00:00", "account":"testis_singlecell"}
+	options = {"memory": "70g","walltime":"30:00:00", "account":"testis_singlecell"}
 	spec='''
 
 	cd {} 
@@ -72,7 +72,7 @@ if not os.path.exists(path_to_ref):
 gwf.target_from_template(f'starsolo_ref_annotation', # name of the target in log
 	reference_starsolo(path_to_ref,genome_file,gene_annotation_file)) # template 
 
-## Mapping 
+## Mapping
 
 for sp,name in sp_name_dict.items():
 
@@ -81,7 +81,7 @@ for sp,name in sp_name_dict.items():
 	matrix_counts = []
 	velocyto_path = []
 	samples = []
-		
+	
 	for sample in sp_sample_dict[sp]:
 
 		barcode_file = path_to_barcodes_v2
