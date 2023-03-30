@@ -1,0 +1,10 @@
+	STAR --genomeDir /home/astridkd/testis_singlecell/Workspaces/adahl/birc-project-akd/data/mapping/annotation_starsolo/ --readFilesIn /dev/fd/63 /dev/fd/62 --clipAdapterType CellRanger4 --soloCellFilter EmptyDrops_CR --soloFeatures Gene GeneFull SJ Velocyto --soloMultiMappers Uniform PropUnique EM Rescue --outFilterScoreMin 30 --soloCBmatchWLtype 1MM_multi_Nbase_pseudocounts --soloUMIfiltering MultiGeneUMI_CR --soloUMIdedup 1MM_CR --soloType CB_UMI_Simple --soloCBwhitelist /home/astridkd/testis_singlecell/Workspaces/adahl/birc-project-akd/scripts/10X_barcodes/737K-august-2016.txt --soloBarcodeReadLength 0 --outSAMtype BAM Unsorted --outSAMattributes NH HI nM AS CR UR GX GN sS sQ sM --limitOutSJcollapsed 5000000
+	STAR version: 2.7.9a   compiled: 2021-08-02T11:56:40+0200 fe1:/project/primatescrna/UPDATED/STAR-2.7.9a/source
+Feb 20 16:34:12 ..... started STAR run
+Feb 20 16:34:13 ..... loading genome
+Feb 20 16:34:26 ..... started mapping
+Feb 21 01:45:38 ..... finished mapping
+Feb 21 01:45:40 ..... started Solo counting
+Feb 21 02:01:44 ..... finished Solo counting
+Feb 21 02:01:44 ..... finished successfully
+

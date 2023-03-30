@@ -1,0 +1,344 @@
+STAR version=2.7.9a
+STAR compilation time,server,dir=2021-08-02T11:56:40+0200 fe1:/project/primatescrna/UPDATED/STAR-2.7.9a/source
+##### Command Line:
+STAR --genomeDir /home/astridkd/testis_singlecell/Workspaces/adahl/birc-project-akd/data/mapping/annotation_starsolo/ --readFilesIn /dev/fd/63 /dev/fd/62 --clipAdapterType CellRanger4 --soloCellFilter EmptyDrops_CR --soloFeatures Gene GeneFull SJ Velocyto --soloMultiMappers Uniform PropUnique EM Rescue --outFilterScoreMin 30 --soloCBmatchWLtype 1MM_multi_Nbase_pseudocounts --soloUMIfiltering MultiGeneUMI_CR --soloUMIdedup 1MM_CR --soloType CB_UMI_Simple --soloCBwhitelist /home/astridkd/testis_singlecell/Workspaces/adahl/birc-project-akd/scripts/10X_barcodes/737K-august-2016.txt --soloBarcodeReadLength 0 --outSAMtype BAM Unsorted --outSAMattributes NH HI nM AS CR UR GX GN sS sQ sM --limitOutSJcollapsed 5000000
+##### Initial USER parameters from Command Line:
+###### All USER parameters from Command Line:
+genomeDir                     /home/astridkd/testis_singlecell/Workspaces/adahl/birc-project-akd/data/mapping/annotation_starsolo/     ~RE-DEFINED
+readFilesIn                   /dev/fd/63   /dev/fd/62        ~RE-DEFINED
+clipAdapterType               CellRanger4        ~RE-DEFINED
+soloCellFilter                EmptyDrops_CR        ~RE-DEFINED
+soloFeatures                  Gene   GeneFull   SJ   Velocyto        ~RE-DEFINED
+soloMultiMappers              Uniform   PropUnique   EM   Rescue        ~RE-DEFINED
+outFilterScoreMin             30     ~RE-DEFINED
+soloCBmatchWLtype             1MM_multi_Nbase_pseudocounts     ~RE-DEFINED
+soloUMIfiltering              MultiGeneUMI_CR        ~RE-DEFINED
+soloUMIdedup                  1MM_CR        ~RE-DEFINED
+soloType                      CB_UMI_Simple     ~RE-DEFINED
+soloCBwhitelist               /home/astridkd/testis_singlecell/Workspaces/adahl/birc-project-akd/scripts/10X_barcodes/737K-august-2016.txt        ~RE-DEFINED
+soloBarcodeReadLength         0     ~RE-DEFINED
+outSAMtype                    BAM   Unsorted        ~RE-DEFINED
+outSAMattributes              NH   HI   nM   AS   CR   UR   GX   GN   sS   sQ   sM        ~RE-DEFINED
+limitOutSJcollapsed           5000000     ~RE-DEFINED
+##### Finished reading parameters from all sources
+
+##### Final user re-defined parameters-----------------:
+genomeDir                         /home/astridkd/testis_singlecell/Workspaces/adahl/birc-project-akd/data/mapping/annotation_starsolo/
+readFilesIn                       /dev/fd/63   /dev/fd/62   
+limitOutSJcollapsed               5000000
+outSAMtype                        BAM   Unsorted   
+outSAMattributes                  NH   HI   nM   AS   CR   UR   GX   GN   sS   sQ   sM   
+outFilterScoreMin                 30
+clipAdapterType                   CellRanger4   
+soloType                          CB_UMI_Simple
+soloBarcodeReadLength             0
+soloCBwhitelist                   /home/astridkd/testis_singlecell/Workspaces/adahl/birc-project-akd/scripts/10X_barcodes/737K-august-2016.txt   
+soloFeatures                      Gene   GeneFull   SJ   Velocyto   
+soloUMIdedup                      1MM_CR   
+soloCBmatchWLtype                 1MM_multi_Nbase_pseudocounts
+soloCellFilter                    EmptyDrops_CR   
+soloUMIfiltering                  MultiGeneUMI_CR   
+soloMultiMappers                  Uniform   PropUnique   EM   Rescue   
+
+-------------------------------
+##### Final effective command line:
+STAR   --genomeDir /home/astridkd/testis_singlecell/Workspaces/adahl/birc-project-akd/data/mapping/annotation_starsolo/   --readFilesIn /dev/fd/63   /dev/fd/62      --limitOutSJcollapsed 5000000   --outSAMtype BAM   Unsorted      --outSAMattributes NH   HI   nM   AS   CR   UR   GX   GN   sS   sQ   sM      --outFilterScoreMin 30   --clipAdapterType CellRanger4      --soloType CB_UMI_Simple   --soloBarcodeReadLength 0   --soloCBwhitelist /home/astridkd/testis_singlecell/Workspaces/adahl/birc-project-akd/scripts/10X_barcodes/737K-august-2016.txt      --soloFeatures Gene   GeneFull   SJ   Velocyto      --soloUMIdedup 1MM_CR      --soloCBmatchWLtype 1MM_multi_Nbase_pseudocounts   --soloCellFilter EmptyDrops_CR      --soloUMIfiltering MultiGeneUMI_CR      --soloMultiMappers Uniform   PropUnique   EM   Rescue   
+----------------------------------------
+
+Number of fastq files for each mate = 1
+ParametersSolo: using hardcoded filtering parameters for --soloCellFilterType EmptyDrops_CR
+ParametersSolo: --soloCellFilterType EmptyDrops_CR filtering parameters: 3000 0.99 10 45000 90000 500 0.01 20000 0.01 10000
+Number of CBs in the whitelist = 737280
+Feb 27 19:50:11 ... Finished reading, sorting and deduplicating CB whitelist sequences.
+Finished loading and checking parameters
+Reading genome generation parameters:
+### STAR   --runMode genomeGenerate      --runThreadN 4   --genomeDir /home/astridkd/testis_singlecell/Workspaces/adahl/birc-project-akd/data/mapping/annotation_starsolo/   --genomeFastaFiles /home/astridkd/testis_singlecell/backup/PrimaryData/human/ref/genome.fa      --genomeSAsparseD 3   --sjdbGTFfile /home/astridkd/testis_singlecell/backup/PrimaryData/human/ref/genes_amplicons_starsolo.gtf
+### GstrandBit=32
+versionGenome                 2.7.4a     ~RE-DEFINED
+genomeType                    Full     ~RE-DEFINED
+genomeFastaFiles              /home/astridkd/testis_singlecell/backup/PrimaryData/human/ref/genome.fa        ~RE-DEFINED
+genomeSAindexNbases           14     ~RE-DEFINED
+genomeChrBinNbits             18     ~RE-DEFINED
+genomeSAsparseD               3     ~RE-DEFINED
+genomeTransformType           None     ~RE-DEFINED
+genomeTransformVCF            -     ~RE-DEFINED
+sjdbOverhang                  100     ~RE-DEFINED
+sjdbFileChrStartEnd           -        ~RE-DEFINED
+sjdbGTFfile                   /home/astridkd/testis_singlecell/backup/PrimaryData/human/ref/genes_amplicons_starsolo.gtf     ~RE-DEFINED
+sjdbGTFchrPrefix              -     ~RE-DEFINED
+sjdbGTFfeatureExon            exon     ~RE-DEFINED
+sjdbGTFtagExonParentTranscripttranscript_id     ~RE-DEFINED
+sjdbGTFtagExonParentGene      gene_id     ~RE-DEFINED
+sjdbInsertSave                Basic     ~RE-DEFINED
+genomeFileSizes               3203767399   8647498674        ~RE-DEFINED
+Genome version is compatible with current STAR
+Number of real (reference) chromosomes= 193
+1	NC_000010.11	133797422	0
+2	NC_000011.10	135086622	133955584
+3	NT_187376.1	100316	269221888
+4	NC_000012.12	133275309	269484032
+5	NC_000013.11	114364328	402915328
+6	NC_000014.9	107043718	517472256
+7	NT_113796.3	201709	624689152
+8	NT_167219.1	211173	624951296
+9	NT_187377.1	194050	625213440
+10	NT_113888.1	191469	625475584
+11	NT_187378.1	38115	625737728
+12	NT_187379.1	39555	625999872
+13	NT_187380.1	172810	626262016
+14	NT_187381.1	43739	626524160
+15	NC_000015.10	101991189	626786304
+16	NT_187382.1	448248	729022464
+17	NC_000016.10	90338345	729546752
+18	NT_187383.1	1872759	819986432
+19	NC_000017.11	83257441	822083584
+20	NT_113930.2	185591	905445376
+21	NT_187384.1	280839	905707520
+22	NT_187385.1	112551	906231808
+23	NC_000018.10	80373285	906493952
+24	NC_000019.10	58617616	986972160
+25	NC_000001.11	248956422	1045692416
+26	NT_187361.1	175055	1294729216
+27	NT_187362.1	32032	1294991360
+28	NT_187363.1	127682	1295253504
+29	NT_187364.1	66860	1295515648
+30	NT_187365.1	40176	1295777792
+31	NT_187366.1	42210	1296039936
+32	NT_187367.1	176043	1296302080
+33	NT_187368.1	40745	1296564224
+34	NT_187369.1	41717	1296826368
+35	NC_000020.11	64444167	1297088512
+36	NC_000021.9	46709983	1361575936
+37	NC_000022.11	50818468	1408499712
+38	NT_187386.1	150754	1459355648
+39	NT_187387.1	41543	1459617792
+40	NT_187388.1	179772	1459879936
+41	NT_187389.1	165050	1460142080
+42	NT_187390.1	42811	1460404224
+43	NT_187391.1	181920	1460666368
+44	NT_187392.1	103838	1460928512
+45	NT_187393.1	99375	1461190656
+46	NT_187394.1	73985	1461452800
+47	NC_000002.12	242193529	1461714944
+48	NT_187370.1	161471	1703936000
+49	NT_187371.1	153799	1704198144
+50	NC_000003.12	198295559	1704460288
+51	NT_167215.1	155397	1902903296
+52	NC_000004.12	190214555	1903165440
+53	NT_113793.3	209709	2093481984
+54	NC_000005.10	181538259	2093744128
+55	NT_113948.1	92689	2275409920
+56	NC_000006.12	170805979	2275672064
+57	NC_000007.14	159345973	2446589952
+58	NC_000008.11	145138636	2605973504
+59	NC_000009.12	138394717	2751201280
+60	NT_187372.1	40062	2889613312
+61	NT_187373.1	38054	2889875456
+62	NT_187374.1	176845	2890137600
+63	NT_187375.1	39050	2890399744
+64	NC_012920.1	16569	2890661888
+65	NC_000023.11	156040895	2890924032
+66	NC_000024.10	57227415	3047161856
+67	NT_187395.1	37240	3104571392
+68	NT_187396.1	2274	3104833536
+69	NT_187397.1	2165	3105095680
+70	NT_187398.1	1942	3105357824
+71	NT_187399.1	1472	3105619968
+72	NT_187400.1	21476	3105882112
+73	NT_187401.1	4416	3106144256
+74	NT_187402.1	1201	3106406400
+75	NT_187403.1	1444	3106668544
+76	NT_187404.1	2276	3106930688
+77	NT_187405.1	998	3107192832
+78	NT_187406.1	12399	3107454976
+79	NT_187407.1	37690	3107717120
+80	NT_187408.1	1179	3107979264
+81	NT_187409.1	2646	3108241408
+82	NT_187410.1	2489	3108503552
+83	NT_187411.1	1029	3108765696
+84	NT_187412.1	2145	3109027840
+85	NT_187413.1	2321	3109289984
+86	NT_187414.1	2140	3109552128
+87	NT_187415.1	2043	3109814272
+88	NT_187416.1	1445	3110076416
+89	NT_187417.1	981	3110338560
+90	NT_187418.1	1884	3110600704
+91	NT_187419.1	1361	3110862848
+92	NT_187420.1	392061	3111124992
+93	NT_187421.1	1233	3111649280
+94	NT_187422.1	1774	3111911424
+95	NT_187423.1	3920	3112173568
+96	NT_187424.1	92983	3112435712
+97	NT_187425.1	112505	3112697856
+98	NT_187426.1	4055	3112960000
+99	NT_187427.1	2415	3113222144
+100	NT_187428.1	2318	3113484288
+101	NT_187429.1	2186	3113746432
+102	NT_187430.1	1951	3114008576
+103	NT_187431.1	1300	3114270720
+104	NT_187432.1	22689	3114532864
+105	NT_187433.1	138126	3114795008
+106	NT_187434.1	5674	3115057152
+107	NT_187435.1	8127	3115319296
+108	NT_187436.1	6361	3115581440
+109	NT_187437.1	5353	3115843584
+110	NT_187438.1	3253	3116105728
+111	NT_187439.1	1899	3116367872
+112	NT_187440.1	2983	3116630016
+113	NT_187441.1	2168	3116892160
+114	NT_187442.1	993	3117154304
+115	NT_187443.1	91309	3117416448
+116	NT_187444.1	1202	3117678592
+117	NT_187445.1	1599	3117940736
+118	NT_187446.1	1400	3118202880
+119	NT_187447.1	2969	3118465024
+120	NT_187448.1	1553	3118727168
+121	NT_187449.1	7046	3118989312
+122	NT_187450.1	31033	3119251456
+123	NT_187451.1	44474	3119513600
+124	NT_187452.1	4685	3119775744
+125	NT_187453.1	4513	3120037888
+126	NT_187454.1	6504	3120300032
+127	NT_187455.1	6158	3120562176
+128	NT_187456.1	3041	3120824320
+129	NT_187457.1	5796	3121086464
+130	NT_187458.1	1652	3121348608
+131	NT_187459.1	1040	3121610752
+132	NT_187460.1	1368	3121872896
+133	NT_187461.1	2699	3122135040
+134	NT_187462.1	1048	3122397184
+135	NT_187463.1	1428	3122659328
+136	NT_187464.1	1428	3122921472
+137	NT_187465.1	1026	3123183616
+138	NT_187466.1	1121	3123445760
+139	NT_187467.1	1803	3123707904
+140	NT_187468.1	2855	3123970048
+141	NT_187469.1	3530	3124232192
+142	NT_187470.1	8320	3124494336
+143	NT_187471.1	1048	3124756480
+144	NT_187472.1	1045	3125018624
+145	NT_187473.1	1298	3125280768
+146	NT_187474.1	2387	3125542912
+147	NT_187475.1	1537	3125805056
+148	NT_187476.1	1143	3126067200
+149	NT_187477.1	1880	3126329344
+150	NT_187478.1	1216	3126591488
+151	NT_187479.1	970	3126853632
+152	NT_187480.1	1788	3127115776
+153	NT_187481.1	1484	3127377920
+154	NT_187482.1	1750	3127640064
+155	NT_187483.1	1308	3127902208
+156	NT_187484.1	1658	3128164352
+157	NT_187485.1	971	3128426496
+158	NT_187486.1	1930	3128688640
+159	NT_187487.1	990	3128950784
+160	NT_187488.1	4215	3129212928
+161	NT_187489.1	1136	3129475072
+162	NT_187490.1	2656	3129737216
+163	NT_187491.1	1650	3129999360
+164	NT_187492.1	1451	3130261504
+165	NT_187493.1	2378	3130523648
+166	NT_187494.1	2805	3130785792
+167	NT_187495.1	7992	3131047936
+168	NT_187496.1	7642	3131310080
+169	NT_113901.1	182896	3131572224
+170	NT_167213.1	179198	3131834368
+171	NT_167214.1	161802	3132096512
+172	NT_167218.1	179693	3132358656
+173	NT_187497.1	157432	3132620800
+174	NT_167220.1	15008	3132882944
+175	NT_167208.1	164239	3133145088
+176	NT_187498.1	210658	3133407232
+177	NT_187499.1	168472	3133669376
+178	NT_187500.1	41891	3133931520
+179	NT_187501.1	66486	3134193664
+180	NT_187502.1	198735	3134455808
+181	NT_187503.1	93321	3134717952
+182	NT_187504.1	158759	3134980096
+183	NT_187505.1	148850	3135242240
+184	NT_187506.1	150742	3135504384
+185	NT_187508.1	62944	3135766528
+186	NT_187509.1	40191	3136028672
+187	NT_187510.1	36723	3136290816
+188	NT_187511.1	79590	3136552960
+189	NT_187512.1	71251	3136815104
+190	NT_167209.1	137718	3137077248
+191	NT_187513.1	186739	3137339392
+192	NT_167211.2	176608	3137601536
+193	NT_113889.1	161147	3137863680
+--sjdbOverhang = 100 taken from the generated genome
+Started loading the genome: Mon Feb 27 19:50:11 2023
+
+Genome: size given as a parameter = 3203767399
+SA: size given as a parameter = 8647498674
+SAindex: size given as a parameter = 1
+Read from SAindex: pGe.gSAindexNbases=14  nSAi=357913940
+nGenome=3203767399;  nSAbyte=8647498674
+GstrandBit=32   SA number of indices=2096363314
+Shared memory is not used for genomes. Allocated a private copy of the genome.
+Genome file size: 3203767399 bytes; state: good=1 eof=0 fail=0 bad=0
+Loading Genome ... done! state: good=1 eof=0 fail=0 bad=0; loaded 3203767399 bytes
+SA file size: 8647498674 bytes; state: good=1 eof=0 fail=0 bad=0
+Loading SA ... done! state: good=1 eof=0 fail=0 bad=0; loaded 8647498674 bytes
+Loading SAindex ... done: 1565873619 bytes
+Finished loading the genome: Mon Feb 27 19:50:16 2023
+
+Processing splice junctions database sjdbN=326575,   pGe.sjdbOverhang=100 
+alignIntronMax=alignMatesGapMax=0, the max intron size will be approximately determined by (2^winBinNbits)*winAnchorDistNbins=589824
+Loaded transcript database, nTr=158377
+Loaded exon database, nEx=1909367
+Thread #0 end of input stream, nextChar=-1
+Completed: thread #0
+Feb 28 01:32:31 ..... started Solo counting
+Feb 28 01:32:31 ... Starting Solo post-map for SJ
+Feb 28 01:32:31 ... Finished allocating arrays for Solo 0.0794045 GB
+Feb 28 01:32:48 ... Finished reading reads from Solo files nCB=191230, nReadPerCBmax=17287, nMatch=0
+Feb 28 01:32:51 ... Finished collapsing UMIs
+Feb 28 01:32:51 ... Solo: writing raw matrix
+Solo output directory directory exists and will be overwritten: ./Solo.out/SJ//raw/
+Feb 28 01:32:52 ... Solo: cell filtering
+Feb 28 01:32:52 ... Starting Solo post-map for GeneFull
+Feb 28 01:32:52 ... Finished allocating arrays for Solo 1.64194 GB
+Feb 28 01:35:37 ... Finished reading reads from Solo files nCB=478328, nReadPerCBmax=223222, nMatch=0
+Feb 28 01:36:19 ... Finished collapsing UMIs
+Feb 28 01:36:19 ... Solo: writing raw matrix
+Solo output directory directory exists and will be overwritten: ./Solo.out/GeneFull//raw/
+Feb 28 01:36:40 ... Solo: cell filtering
+cellFiltering: simple: nUMImax=14945; nUMImin=1495; nCellsSimple=4629
+Feb 28 01:36:40 ... starting emptyDrops_CR filtering
+Feb 28 01:36:40 ... finished ambient cells counting
+Feb 28 01:36:40 ... finished SGT
+Feb 28 01:36:40 ... finished ambient profile
+Feb 28 01:36:40 ... candidate cells: minUMI=500; number of candidate cells=1762
+Feb 28 01:36:40 ... finished observed logProb
+Feb 28 01:36:43 ... finished simulations
+Feb 28 01:36:43 ... finished emptyDrops_CR filtering: number of additional non-ambient cells=1037
+Solo output directory directory exists and will be overwritten: ./Solo.out/GeneFull/filtered/
+Feb 28 01:36:46 ... Starting Solo post-map for Gene
+Feb 28 01:36:47 ... Allocated and initialized readInfo array, nReadsInput = 243321271
+Feb 28 01:36:47 ... Finished allocating arrays for Solo 0.999794 GB
+Feb 28 01:41:21 ... Finished reading reads from Solo files nCB=409119, nReadPerCBmax=130192, nMatch=0
+Feb 28 01:41:48 ... Finished collapsing UMIs
+Feb 28 01:41:48 ... Solo: writing raw matrix
+Solo output directory directory exists and will be overwritten: ./Solo.out/Gene//raw/
+Feb 28 01:42:02 ... Solo: cell filtering
+cellFiltering: simple: nUMImax=10928; nUMImin=1093; nCellsSimple=3627
+Feb 28 01:42:02 ... starting emptyDrops_CR filtering
+Feb 28 01:42:02 ... finished ambient cells counting
+Feb 28 01:42:02 ... finished SGT
+Feb 28 01:42:02 ... finished ambient profile
+Feb 28 01:42:02 ... candidate cells: minUMI=500; number of candidate cells=2358
+Feb 28 01:42:02 ... finished observed logProb
+Feb 28 01:42:04 ... finished simulations
+Feb 28 01:42:04 ... finished emptyDrops_CR filtering: number of additional non-ambient cells=1977
+Solo output directory directory exists and will be overwritten: ./Solo.out/Gene/filtered/
+Feb 28 01:42:06 ... Starting Solo post-map for Velocyto
+Feb 28 01:42:07 ... Velocyto counting: allocated arrays
+Feb 28 01:47:32 ... Velocyto counting: finished input
+Feb 28 01:47:40 ... Velocyto counting: finished collapsing UMIs
+Feb 28 01:47:49 ... Solo: writing raw matrix
+Solo output directory directory exists and will be overwritten: ./Solo.out/Velocyto//raw/
+Feb 28 01:48:02 ... Solo: cell filtering
+Solo output directory directory exists and will be overwritten: ./Solo.out/Velocyto/filtered/
+Feb 28 01:48:10 ..... finished Solo counting
+ALL DONE!

@@ -26,11 +26,11 @@ def reference_starsolo(path_to_ref,genome_fa,gene_annotation): # creates human r
 def mapping_starsolo_velocity(path_to_ref, read_2, read_1, CB_whitelist, out_prefix):
 	inputs = [path_to_ref+'Log.out']
 	outputs = [f'{out_prefix}Log.final.out']
-	options = {"memory": "100g","walltime":"160:00:00", "account":"testis_singlecell"}
+	options = {"memory": "80g","walltime":"30:00:00", "account":"testis_singlecell"}
 	spec='''
 
 	cd {} 
-	STAR --genomeDir {} --readFilesIn <(zcat {}) <(zcat {}) --clipAdapterType CellRanger4 --soloCellFilter EmptyDrops_CR --soloFeatures GeneFull Velocyto --soloMultiMappers Uniform PropUnique EM Rescue --outFilterScoreMin 30 --soloCBmatchWLtype 1MM_multi_Nbase_pseudocounts --soloUMIfiltering MultiGeneUMI_CR --soloUMIdedup 1MM_CR --soloType CB_UMI_Simple --soloCBwhitelist {} --soloBarcodeReadLength 0 --outSAMtype BAM Unsorted --outSAMattributes NH HI nM AS CR UR GX GN sS sQ sM --limitOutSJcollapsed 10000000
+	STAR --genomeDir {} --readFilesIn <(zcat {}) <(zcat {}) --clipAdapterType CellRanger4 --soloCellFilter EmptyDrops_CR --soloFeatures Gene GeneFull SJ Velocyto --soloMultiMappers Uniform PropUnique EM Rescue --outFilterScoreMin 30 --soloCBmatchWLtype 1MM_multi_Nbase_pseudocounts --soloUMIfiltering MultiGeneUMI_CR --soloUMIdedup 1MM_CR --soloType CB_UMI_Simple --soloCBwhitelist {} --soloBarcodeReadLength 0 --outSAMtype BAM Unsorted --outSAMattributes NH HI nM AS CR UR GX GN sS sQ sM --limitOutSJcollapsed 10000000
 
 	'''.format(out_prefix, path_to_ref, read_2, read_1, CB_whitelist)
 
@@ -49,11 +49,11 @@ sp_name_dict = {
 
 
 sp_sample_dict = {
-	"HUM":["SN142","SN111","SN052","SN011","SN007"], "GOR":["MB_n_B4"], "CHIMP":["Carl", "SN074", "SN112", "SN193"], "BON":["SN219", "SN224"], "MAC":["SN116", "SN143"]
+	"HUM":["SN142","SN111","SN052","SN011","SN007"], "GOR":["MB_n_B4","SN180","SN223"], "CHIMP":["Carl", "SN074", "SN112", "SN193"], "BON":["SN219", "SN224"], "MAC":["SN116", "SN143"]
 }
 
 
-# Carl:v3 chamistry. path_to_barcodes_v3
+# Carl, GOR=MB_n_B4 and orangutans: v3 chemistry. path_to_barcodes_v3
 
 in_path = f'/home/astridkd/testis_singlecell/backup/PrimaryData/human/ref'
 out_path = f'/home/astridkd/testis_singlecell/Workspaces/adahl/birc-project-akd/data/mapping/'
@@ -78,9 +78,10 @@ for sp,name in sp_name_dict.items():
 
 	out_path = f'/home/astridkd/testis_singlecell/Workspaces/adahl/birc-project-akd/data/mapping/{sp}/'
 	
-	matrix_counts = []
+	matrix_counts = [] # ?
 	velocyto_path = []
 	samples = []
+	
 	
 	for sample in sp_sample_dict[sp]:
 
