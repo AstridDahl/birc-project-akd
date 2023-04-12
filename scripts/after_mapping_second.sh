@@ -5,11 +5,11 @@
 ###############################
 
 # for the new gorillas and the v3 MB_n_B4 and Carl 
-#["CHIMP"]="Carl"
-declare -A get_samples=( ["GOR"]="MB_n_B4 SN180 SN223")
+
+declare -A get_samples=( ["GOR"]="MB_n_B4 SN180 SN223" ["CHIMP"]="Carl")
 path="/home/astridkd/testis_singlecell/Workspaces/adahl/birc-project-akd/data/mapping/"
 
-for sp in CHIMP #GOR
+for sp in GOR CHIMP
 do
 
         for sample in ${get_samples[${sp}]}

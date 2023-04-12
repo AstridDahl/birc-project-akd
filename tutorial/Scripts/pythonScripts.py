@@ -94,15 +94,15 @@ def dependentFeatures(adata, obs_subset=['total_counts'], n_pcs = 10):
     from matplotlib.lines import Line2D  
     
     L = len(obs_subset)
-    X = pd.DataFrame(adata.obsm['X_pca'][:,:n_pcs], columns=[f'PC{i}' for i in range(n_pcs)])
+    X = pd.DataFrame(adata.obsm['X_pca'][:,:n_pcs], columns=[f'PC{i}' for i in range(1,n_pcs+1)]) # edited
     Y = adata.obs[obs_subset]
     scores = np.zeros([n_pcs, L])
     
     for n in range(n_pcs):
         for l in range(L):
             #reg = LR().fit(X[f'PC{n}'].reshape(-1,1), Y[obs_subset[l]].reshape(-1,1))
-            reg = LR().fit(np.array(X[f'PC{n}']).reshape(-1,1), np.array(Y[obs_subset[l]]).reshape(-1,1))
-            pred = reg.predict(np.array(X[f'PC{n}']).reshape(-1,1))          
+            reg = LR().fit(np.array(X[f'PC{n+1}']).reshape(-1,1), np.array(Y[obs_subset[l]]).reshape(-1,1)) # edited
+            pred = reg.predict(np.array(X[f'PC{n+1}']).reshape(-1,1))           # edited
             scores[n, l] = r2_score(Y[obs_subset[l]], pred)
             
     max_scores = np.max(scores, 0)
@@ -111,8 +111,8 @@ def dependentFeatures(adata, obs_subset=['total_counts'], n_pcs = 10):
     fig, ax = plt.subplots(L, 1, figsize=(6,6*L), gridspec_kw={'hspace':0.4})
     for l in range(L):
         x1 = sns.regplot(x=X[f'PC{argmax_scores[l]}'], y=Y[obs_subset[l]], ax=ax[l], scatter_kws={'alpha':0.3})
-        x = x1.set_title(f'Best lin.regression:\n {obs_subset[l]} VS PC {argmax_scores[l]}\nR score {max_scores[l]}')
-        x1.set(ylabel=f'{obs_subset[l]}', xlabel=f'PC {argmax_scores[l]}')
+        x = x1.set_title(f'Best lin.regression:\n {obs_subset[l]} VS PC {argmax_scores[l]+1}\nR score {max_scores[l]}') # I added the +1 so it doesn't start with 0, must be changed over places too
+        x1.set(ylabel=f'{obs_subset[l]}', xlabel=f'PC {argmax_scores[l]+1}') # edited
         
 ###calculate markers' scores from a dictionary
 def marker_score(markers_dict, adata, N_samples=100, random_seed=42):
@@ -123,7 +123,7 @@ def marker_score(markers_dict, adata, N_samples=100, random_seed=42):
     gene_names = adata.var_names[random_genes]
     for i in markers_dict:
         markers_list.append(f'{i}_score')
-        adata.obs[f'{i}_score'] = np.mean(adata[:,markers_dict[i]].X,1) - np.mean(adata[:,gene_names].X,(0,1))
+        adata.obs[f'{i}_score'] = np.array( np.mean(adata[:,markers_dict[i]].X,1) - np.mean(adata[:,gene_names].X,(0,1)) )
     return markers_list, adata
 
 ###function to rename clusters from a dictionary

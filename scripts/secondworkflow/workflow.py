@@ -10,7 +10,7 @@ gwf = Workflow()
 #B.FUNCTIONS AND TEMPLATES
 ######################################################################################
 
-def reference_starsolo(path_to_ref,genome_fa,gene_annotation): # creates human reference in my folder
+def reference_starsolo(path_to_ref,genome_fa,gene_annotation):
 	inputs = []
 	outputs = [f'{path_to_ref}Log.out']
 	options = {"memory": "50g","account":"testis_singlecell","walltime":"05:00:00"}
@@ -28,7 +28,7 @@ def mapping_starsolo_velocity(path_to_ref, read_2, read_1, CB_whitelist, out_pre
 	outputs = [f'{out_prefix}Log.final.out']
 	options = {"memory": "70g","walltime":"23:00:00", "account":"testis_singlecell"}
 	spec='''
-
+ 
 	cd {} 
 	STAR --genomeDir {} --readFilesIn <(zcat {}) <(zcat {}) --clipAdapterType CellRanger4 --soloCellFilter EmptyDrops_CR --soloFeatures Gene GeneFull SJ Velocyto --soloMultiMappers Uniform PropUnique EM Rescue --outFilterScoreMin 30 --soloCBmatchWLtype 1MM_multi_Nbase_pseudocounts --soloUMIfiltering MultiGeneUMI_CR --soloUMIdedup 1MM_CR --soloType CB_UMI_Simple --soloCBwhitelist {} --soloBarcodeReadLength 0 --outSAMtype BAM Unsorted --outSAMattributes NH HI nM AS CR UR GX GN sS sQ sM --limitOutSJcollapsed 10000000
 
@@ -39,6 +39,7 @@ def mapping_starsolo_velocity(path_to_ref, read_2, read_1, CB_whitelist, out_pre
 ######################################################################################
 #D.CODE
 ###################################################################################### 
+
 
 path_to_barcodes_v2 = "/home/astridkd/testis_singlecell/Workspaces/adahl/birc-project-akd/scripts/10X_barcodes/737K-august-2016.txt"
 path_to_barcodes_v3 = "/home/astridkd/testis_singlecell/Workspaces/adahl/birc-project-akd/scripts/10X_barcodes/3M-february-2018.txt"
@@ -52,7 +53,7 @@ sp_sample_dict = {
 	"HUM":["SN142","SN111","SN052","SN011","SN007"], "GOR":["MB_n_B4"], "CHIMP":["Carl", "SN074", "SN112", "SN193"], "BON":["SN219", "SN224"], "MAC":["SN116", "SN143"]
 }
 
-# Carl:v3 chamistry. path_to_barcodes_v3
+# Carl and MB_n_B4: v3 chemistry. path_to_barcodes_v3
 
 data_path = f'/home/astridkd/testis_singlecell/Workspaces/adahl/birc-project-akd/data/'
 
@@ -61,7 +62,7 @@ data_path = f'/home/astridkd/testis_singlecell/Workspaces/adahl/birc-project-akd
 
 for sp,name in sp_name_dict.items():
 
-	in_path = f'/home/astridkd/testis_singlecell/backup/PrimaryData/'
+	in_path = f'/home/astridkd/testis_singlecell/backup/PrimaryData'
 
 	if name == 'bonobo':
 		in_path = f'{in_path}/chimpanzee/ref'
@@ -70,7 +71,7 @@ for sp,name in sp_name_dict.items():
 
 	# input files
 	genome_file = f'{in_path}/genome.fa'
-	gene_annotation_file = f'{in_path}/genes_amplicons_starsolo.gtf'
+	gene_annotation_file = f'{in_path}/gene_annot.gtf'
 
     ## STARsolo genome ref
 	path_to_ref = f'{data_path}mapping_own_ref/{sp}/annotation_starsolo/'
@@ -89,7 +90,7 @@ for sp,name in sp_name_dict.items():
 	
 	for sample in sp_sample_dict[sp]:
 		
-		if sample == 'Carl':
+		if sample == 'Carl' or sample == "MB_n_B4":
 			barcode_file = path_to_barcodes_v3
 		else:
 			barcode_file = path_to_barcodes_v2
