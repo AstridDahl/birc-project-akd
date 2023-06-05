@@ -50,7 +50,7 @@ sp_name_dict = {
 
 
 sp_sample_dict = {
-	"HUM":["SN142","SN111","SN052","SN011","SN007"], "GOR":["MB_n_B4"], "CHIMP":["Carl", "SN074", "SN112", "SN193"], "BON":["SN219", "SN224"], "MAC":["SN116", "SN143"]
+	"HUM":["SN142","SN111","SN052","SN011","SN007"], "GOR":["MB_n_B4","SN180","SN223"], "CHIMP":["Carl", "SN074", "SN112", "SN193"], "BON":["SN219", "SN224"], "MAC":["SN116", "SN143"]
 }
 
 # Carl and MB_n_B4: v3 chemistry. path_to_barcodes_v3
@@ -82,7 +82,7 @@ for sp,name in sp_name_dict.items():
 	gwf.target_from_template(f'starsolo_ref_annotation_{sp}', # name of the target in log
 		reference_starsolo(path_to_ref,genome_file,gene_annotation_file)) # template 
 
-	out_path = f'{data_path}mapping_own_ref/{sp}'
+	out_path = f'{data_path}mapping_own_ref/{sp}/'
 	
 	matrix_counts = [] # ?
 	velocyto_path = []
